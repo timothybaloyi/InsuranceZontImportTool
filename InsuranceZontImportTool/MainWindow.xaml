@@ -18,37 +18,25 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
-            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
-            <RowDefinition Height="25"></RowDefinition>
-            <RowDefinition Height="25"></RowDefinition>
-            
-            
+           
         </Grid.RowDefinitions>
 
         <TextBox x:Name="txtAdvisorFundFolder" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Margin="2"></TextBox>
         <Button x:Name="btnGetAdvisorFunds" Grid.Row="0" Grid.Column="5" Margin="2" Click="btnGetAdvisorFunds_Click">Search</Button>
 
         <Label Grid.Row="1" Grid.Column="0">Advisor Funds</Label>
-        <TreeView Name="tvAdvisorFundsData" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
-            <TreeView.Resources>
-                <Style TargetType="{x:Type TreeViewItem}">
-                    <Setter Property="HeaderTemplate">
-                        <Setter.Value>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <CheckBox Name="chkBox" Margin="2" Tag="{Binding}" >
-                                    </CheckBox>
-                                    <TextBlock Text="{Binding}"></TextBlock>
-                                </StackPanel>
-                            </DataTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </TreeView.Resources>
-            <TreeViewItem Header="Working" IsExpanded="True">
-                <TreeViewItem Header="Why not"></TreeViewItem>
-            </TreeViewItem>
+        <Button x:Name="btnRefreshGrid" Grid.Row="1" Grid.Column="1" Margin="2" Click="btnRefreshGrid_Click">Refresh</Button>
+
+        <Button x:Name="btnImportSelected" Grid.Row="1" Grid.Column="5" Margin="2" Click="btnImportSelected_Click">Import</Button>
+            
+        <TreeView Name="tvAdvisorFundsData" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            
         </TreeView>
+
+        <DataGrid x:Name="dgData" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Margin="2" AutoGenerateColumns="True">
+
+        </DataGrid>
     </Grid>
 </Window>
