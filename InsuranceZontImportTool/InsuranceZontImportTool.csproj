@@ -35,8 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy">
+      <HintPath>..\..\SDK\SDK\Bin\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk">
+      <HintPath>..\..\SDK\SDK\Bin\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Tooling.Connector">
+      <HintPath>..\..\SDK\SDK\Bin\Microsoft.Xrm.Tooling.Connector.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />

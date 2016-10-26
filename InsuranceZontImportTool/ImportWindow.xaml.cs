@@ -1,6 +1,10 @@
-﻿using Microsoft.Win32;
+﻿using Microsoft.Crm.Sdk.Messages;
+using Microsoft.Win32;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Tooling.Connector;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.IO;
@@ -316,12 +320,27 @@ namespace InsuranceZontImportTool
 
         private void ImportContacts()
         {
+            CrmServiceClient conn = new Microsoft.Xrm.Tooling.Connector.CrmServiceClient(ConfigurationManager.ConnectionStrings["CRM Online"].ConnectionString);
+
+            // Cast the proxy client to the IOrganizationService interface.
+            IOrganizationService _orgService = (IOrganizationService)conn.OrganizationWebProxyClient != null ? (IOrganizationService)conn.OrganizationWebProxyClient : (IOrganizationService)conn.OrganizationServiceProxy;
+
+            foreach (var item in _contacts)
+            {
+                Entity contact = new Entity("contact");
+                contact["firstname"] = item.FirstName;
+                contact["lastname"] = item.LastName;
+                contact["governmentid"] = item.IDNo;
+                
+            }
+            
+
 
         }
 
         private void ImportFunds()
         {
-
+           
         }
 
         private void ImportFundMembers()
@@ -337,6 +356,11 @@ namespace InsuranceZontImportTool
         private void ImportCases()
         {
 
+        }
+
+        private void btnImportINCRM_Click(object sender, RoutedEventArgs e)
+        {
+            ImportContacts();
         }
     }
 
