@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InsuranceZontImportTool"
         mc:Ignorable="d"
-        Title="ImportWindow" Height="400" Width="600">
+        Title="ImportWindow" Height="600" Width="1024">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -19,27 +19,29 @@
             <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
             <RowDefinition Height="25"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="txtLeadsRegisterPath" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="2"></TextBox>
-        <Button x:Name="btnLeadsRegister" Grid.Row="0" Grid.Column="4" Margin="2" Click="btnLeadsRegister_Click">Lead-Register</Button>
-
-        <Label Grid.Row="1" Grid.Column="0">Advisors #</Label>
-        <Label Grid.Row="1" Grid.Column="1">(0)</Label>
+        <Label Grid.Row="0" Grid.Column="0">Advisors #</Label>
+        <Label x:Name="lblAdvisors" Grid.Row="0" Grid.Column="1">(0)</Label>
                 
-        <Label Grid.Row="2" Grid.Column="0">Funds#</Label>
-        <Label x:Name="lblFundsNum" Grid.Row="2" Grid.Column="1">(0)</Label>
-        <Label Grid.Row="2" Grid.Column="2">Members/Contacts#</Label>
-        <Label x:Name="lblMembersNum" Grid.Row="2" Grid.Column="3">(0)</Label>
+        <Label Grid.Row="1" Grid.Column="0">Funds#</Label>
+        <Label x:Name="lblFundsNum" Grid.Row="1" Grid.Column="1">(0)</Label>
+        <Label Grid.Row="1" Grid.Column="2">Members/Contacts#</Label>
+        <Label x:Name="lblMembersNum" Grid.Row="1" Grid.Column="3">(0)</Label>
 
-        <Label Grid.Row="3" Grid.Column="0">New Leads#</Label>
-        <Label x:Name="lblLeadsNum" Grid.Row="3" Grid.Column="1">(0)</Label>
-        <Label Grid.Row="3" Grid.Column="2">Servicing#</Label>
-        <Label x:Name="lblServicingNum" Grid.Row="3" Grid.Column="3">(0)</Label>
+        <TextBox x:Name="txtLeadsRegisterPath" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="2"></TextBox>
+        <Button x:Name="btnLeadsRegister" Grid.Row="3" Grid.Column="4" Margin="2" Click="btnLeadsRegister_Click">Compare-To-Lead-Register</Button>
 
-        <DataGrid x:Name="dgImportData" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Label Grid.Row="4" Grid.Column="0">New Leads#</Label>
+        <Label x:Name="lblLeadsNum" Grid.Row="4" Grid.Column="1">(0)</Label>
+        <Label Grid.Row="4" Grid.Column="2">Servicing#</Label>
+        <Label x:Name="lblServicingNum" Grid.Row="4" Grid.Column="3">(0)</Label>
+
+        <DataGrid x:Name="dgImportData" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         </DataGrid>
     </Grid>
 </Window>

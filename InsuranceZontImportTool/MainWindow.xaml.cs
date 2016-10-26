@@ -248,10 +248,17 @@ namespace InsuranceZontImportTool
                     List<string> cols = fileName.Split('_').ToList();
 
                     DataRow newRow = table.NewRow();
+
+                    string fundName = cols.ElementAtOrDefault(0);
+                    string queryType = cols.ElementAtOrDefault(1);
+
                     newRow["ID"] = corp.ID;
                     newRow["Advisor"] = advisor;
-                    newRow["Fund"] = cols.ElementAtOrDefault(0);
-                    newRow["Query Type"] = cols.ElementAtOrDefault(1);
+                    newRow["Fund"] = fundName;
+                    newRow["Query Type"] = queryType;
+
+                    corp.Fund = fundName;
+                    corp.QueryType = queryType;
 
                     for (int i = 2; i < maxCols; i++)
                     {
@@ -302,16 +309,25 @@ namespace InsuranceZontImportTool
         {
             if(dgData.SelectedItems != null)
             {
+                List<CorpInfo> selectedCorps = new List<CorpInfo>();
                 foreach (var item in dgData.SelectedItems)
                 {
                     if(item is DataRowView)
                     {
                         DataRow row = ((DataRowView)item).Row;
-                        _selectedRowIds.Add(row["ID"].ToString());
+                        string val = row["ID"].ToString();
+                        int id = int.Parse(val);
+                        CorpInfo corp = _corpInfos.Where(x => x.ID == id).FirstOrDefault();
+                        if(corp != null)
+                        {
+                            selectedCorps.Add(corp);
+                        }
+
                     }
                 }
 
                 ImportWindow importWindow = new ImportWindow();
+                importWindow.BindData(selectedCorps);
                 importWindow.ShowDialog();
             }
         }
@@ -331,6 +347,11 @@ namespace InsuranceZontImportTool
         public DataTable Data { get; set; }
 
         public string DataNotes { get; set; }
+
+        public string Fund { get; set; }
+
+        public string QueryType { get; set; }
+
     }
 
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InsuranceZontImportTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="640" Width="825" Activated="Window_Activated">
+        Title="MainWindow" Height="640" Width="1024" Activated="Window_Activated">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"></ColumnDefinition>
