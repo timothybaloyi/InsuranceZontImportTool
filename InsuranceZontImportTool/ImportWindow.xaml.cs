@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,13 +39,18 @@ namespace InsuranceZontImportTool
             if(fileDlg.ShowDialog().Value)
             {
                 string registerPath = fileDlg.FileName;
-                Microsoft.Office.Interop.Excel.Application ExcelObj = new Microsoft.Office.Interop.Excel.Application();
 
+                Microsoft.Office.Interop.Excel.Application ExcelObj = new Microsoft.Office.Interop.Excel.Application();
                 Microsoft.Office.Interop.Excel.Workbook theWorkbook = ExcelObj.Workbooks.Open(registerPath, 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, false, Microsoft.Office.Interop.Excel.XlCorruptLoad.xlNormalLoad);
 
                 Microsoft.Office.Interop.Excel.Sheets sheets = theWorkbook.Worksheets;
-
                 Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)sheets.get_Item(1);
+                
+
+                OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Book1.xls;Extended Properties=Excel 8.0");
+                OleDbDataAdapter da = new OleDbDataAdapter("select * from MyObject", con);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
 
             }
