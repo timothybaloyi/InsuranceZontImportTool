@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:InsuranceZontImportTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Activated="Window_Activated">
+        Title="MainWindow" Height="640" Width="825" Activated="Window_Activated">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="20*"></ColumnDefinition>
+            <ColumnDefinition Width="20*"></ColumnDefinition>
+            <ColumnDefinition Width="20*"></ColumnDefinition>
+            <ColumnDefinition Width="20*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"></RowDefinition>
@@ -24,12 +24,12 @@
         </Grid.RowDefinitions>
 
         <TextBox x:Name="txtAdvisorFundFolder" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" Margin="2"></TextBox>
-        <Button x:Name="btnGetAdvisorFunds" Grid.Row="0" Grid.Column="5" Margin="2" Click="btnGetAdvisorFunds_Click">Search</Button>
+        <Button x:Name="btnGetAdvisorFunds" Grid.Row="0" Grid.Column="5" Margin="2" Click="btnGetAdvisorFunds_Click">BPC </Button>
 
         <Label Grid.Row="1" Grid.Column="0">Advisor Funds</Label>
         <Button x:Name="btnRefreshGrid" Grid.Row="1" Grid.Column="1" Margin="2" Click="btnRefreshGrid_Click">Refresh</Button>
 
-        <Button x:Name="btnImportSelected" Grid.Row="1" Grid.Column="5" Margin="2" Click="btnImportSelected_Click">Import</Button>
+        <Button x:Name="btnImportSelected" Grid.Row="3" Grid.Column="5" Margin="2" Click="btnImportSelected_Click">Import</Button>
             
         <TreeView Name="tvAdvisorFundsData" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             

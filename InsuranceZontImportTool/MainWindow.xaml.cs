@@ -297,7 +297,7 @@ namespace InsuranceZontImportTool
             BindDataToGrid();
         }
 
-        List<string> selectedRowIds = new List<string>();
+        List<string> _selectedRowIds = new List<string>();
         private void btnImportSelected_Click(object sender, RoutedEventArgs e)
         {
             if(dgData.SelectedItems != null)
@@ -307,9 +307,12 @@ namespace InsuranceZontImportTool
                     if(item is DataRowView)
                     {
                         DataRow row = ((DataRowView)item).Row;
-                        selectedRowIds.Add(row["ID"].ToString());
+                        _selectedRowIds.Add(row["ID"].ToString());
                     }
                 }
+
+                ImportWindow importWindow = new ImportWindow();
+                importWindow.ShowDialog();
             }
         }
 
